@@ -53,41 +53,91 @@
 
       <!-- Banner section start -->
 
-      <div class="lg:py-36 py-10 flex flex-col justify-around gap-4 text-white md:flex-row bg-[url(./images/bgbanner.png)] bg-cover bg-bottom rounded-lg bg-[#12132D]">
+      <div
+        class="lg:py-36 py-10 flex flex-col justify-around gap-4 text-white md:flex-row bg-[url(./images/bgbanner.png)] bg-cover bg-bottom rounded-lg bg-[#12132D]"
+      >
         <div class="space-y-4 px-4">
-            <h3 class="text-3xl lg:text-5xl tracking-wide ">Welcome to the <br><span class="bg-gradient-to-r from-violet-800 to-violet-500 bg-clip-text text-transparent text-4xl font-bold">ReTro</span> Forum</h3>
-            <p class="font-medium text-gray-300 ">Share your favorite opinion and win and wp forum coffee mug!</p>
-            <div class="join w-full">
-              <input class="input max-w-[200px] md:max-w-full input-bordered join-item text-black tracking-wider" placeholder="Search Here Anything" />
-              <button class="btn join-item rounded-r-full rounded-l-full bg-[#797DFC] hover:bg-violet-600 text-white">Search</button>
-            </div>
+          <h3 class="text-3xl lg:text-5xl tracking-wide">
+            Welcome to the <br /><span
+              class="bg-gradient-to-r from-violet-800 to-violet-500 bg-clip-text text-transparent text-4xl font-bold"
+              >ReTro</span
+            >
+            Forum
+          </h3>
+          <p class="font-medium text-gray-300">
+            Share your favorite opinion and win and wp forum coffee mug!
+          </p>
+          <div class="join w-full">
+            <input
+              class="input max-w-[200px] md:max-w-full input-bordered join-item text-black tracking-wider"
+              placeholder="Search Here Anything"
+            />
+            <button
+              class="btn join-item rounded-r-full rounded-l-full bg-[#797DFC] hover:bg-violet-600 text-white"
+            >
+              Search
+            </button>
+          </div>
         </div>
 
-        <div class="bg-white p-10 space-y-3 rounded-lg text-gray-600 font-semibold mx-4">
-            <div class="flex gap-8 items-center justify-between">
-              <h3>Registered Users</h3>
-              <p>01</p>
-            </div>
-            <div class="flex gap-8 items-center justify-between">
-              <h3>Forum</h3>
-              <p>05</p>
-            </div>
-            <div class="flex gap-8 items-center justify-between">
-              <h3>Topics</h3>
-              <p>01</p>
-            </div>
-            <div class="flex gap-8 items-center justify-between">
-              <h3>Replies</h3>
-              <p>05</p>
-            </div>
+        <div
+          class="bg-white p-10 space-y-3 rounded-lg text-gray-600 font-semibold mx-4"
+        >
+          <div class="flex gap-8 items-center justify-between">
+            <h3>Registered Users</h3>
+            <p>01</p>
+          </div>
+          <div class="flex gap-8 items-center justify-between">
+            <h3>Forum</h3>
+            <p>05</p>
+          </div>
+          <div class="flex gap-8 items-center justify-between">
+            <h3>Topics</h3>
+            <p>01</p>
+          </div>
+          <div class="flex gap-8 items-center justify-between">
+            <h3>Replies</h3>
+            <p>05</p>
+          </div>
         </div>
       </div>
 
-
       <!-- Banner section end -->
-
     </header>
 
-    <script src="./scripts/app.js"></script>
+
+    <main class="max-w-[1440px] w-11/12 mx-auto">
+        <section class="text-center my-8 space-y-2" >
+            <h3 class="text-3xl font-bold">Let's Discuss</h3>
+            <p class="text-gray-600">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
+        </section>
+        <section class="my-8 flex flex-col-reverse justify-between lg:flex-row gap-4">
+            <div class="lg:w-3/5">
+                <div id="loadSpinner" class="hidden">
+                  <span class="loading loading-spinner loading-lg"></span>
+                </div>
+                <div id="content-container" class="space-y-3">
+                 
+                </div>
+            </div>
+
+            <div class="bg-gray-200 lg:w-4/12 p-5 rounded-lg h-full">
+                <div class="flex justify-between items-center">
+                  <h3 class="font-semibold text-xl">Title</h3>
+                  <div>
+                  <p class="flex gap-2 text-gray-600 font-semibold"><img src="./images/tik.svg" alt="">Mark As Read (4)</p>
+                  </div>
+                </div>
+
+                <div id="read-status-container">
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="./scripts/FetchAllAPI.js"></script>
+    <script src="./scripts/showAllAPI.js"></script>
   </body>
 </html>
