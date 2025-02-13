@@ -67,13 +67,14 @@
           <p class="font-medium text-gray-300">
             Share your favorite opinion and win and wp forum coffee mug!
           </p>
+          <p class="hidden" id="write-alert">Write Something...</p>
           <div class="join w-full">
-            <input
+            <input id="input-field"
               class="input max-w-[230px] md:max-w-full input-bordered join-item text-black tracking-wider"
               placeholder="Search Here Anything"
             />
             <button
-              class="btn join-item rounded-r-full rounded-l-full bg-[#797DFC] hover:bg-violet-600 text-white"
+              class="btn join-item rounded-r-full rounded-l-full bg-[#797DFC] hover:bg-violet-600 text-white" onclick="handleSearch()"
             >
               Search
             </button>
@@ -118,8 +119,8 @@
         class="my-8 flex flex-col-reverse justify-between lg:flex-row gap-4"
       >
         <div class="lg:w-3/5">
-          <div id="loadSpinner" class="hidden">
-            <span class="loading loading-spinner loading-lg"></span>
+          <div id="loadSpinner" class="hidden text-center">
+            <span class="loading loading-spinner text-red-500 loading-lg"></span>
           </div>
           <div id="content-container" class="space-y-3"></div>
         </div>
@@ -151,6 +152,7 @@
       </section>
     </main>
 
+    <script src="./scripts/spinner.js"></script>
     <script src="./scripts/FetchAllAPI.js"></script>
     <script src="./scripts/showAllAPI.js"></script>
   </body>

@@ -1,7 +1,16 @@
 const showAllLoadPosts = (posts) => {
+  console.log(posts.length);
   const contentContainer = document.getElementById("content-container");
+  if (posts.length === 0) {
+    contentContainer.innerHTML = `
+    <img src="../images/searchNotFound.gif"/>
+    `;
+    handleSpinner(false);
+    return;
+  }
+  contentContainer.innerHTML = "";
   posts.forEach((post) => {
-    const {
+    let {
       id,
       category,
       image,
@@ -13,6 +22,7 @@ const showAllLoadPosts = (posts) => {
       view_count,
       posted_time,
     } = post;
+    title = title.replace(/'/g, "");
     const div = document.createElement("div");
     div.className =
       "bg-[#797DFC1A] p-4 rounded-lg flex flex-col lg:flex-row gap-6";
@@ -63,14 +73,16 @@ const showAllLoadPosts = (posts) => {
         </div>
 
         <div>
-                <img onclick="envelopeClicked('${title}', '${view_count}', '${id}', this)" class="w-12 cursor-pointer  hover:scale-110 overflow-hidden transition-all duration-150" src="../images/read.svg" />
+                <img onclick='envelopeClicked("${title}", "${view_count}", "${id}", this)' class="w-12 cursor-pointer  hover:scale-110 overflow-hidden transition-all duration-150" src="../images/read.svg" />
         </div>
 
         `;
     contentContainer.appendChild(div);
   });
+  handleSpinner(false);
 };
 
+// Clicked Enveloped
 let count = 1;
 let unique = [];
 const envelopeClicked = (title, view_count, id, event) => {
@@ -93,4 +105,20 @@ const envelopeClicked = (title, view_count, id, event) => {
   } else {
     document.getElementById("alreadyRead").classList.remove("hidden");
   }
+};
+
+// Handle Search
+
+const handleSearch = () => {
+  const inputValue = document.getElementById("input-field").value;
+  if (!inputValue.trim()) {
+    document.getElementById("write-alert").classList.remove("hidden");
+  } else {
+    document.getElementById("write-alert").classList.add("hidden");
+  }
+  handleSpinner(true);
+  setTimeout(() => {
+    loadAllPosts(`?category=${inputValue}`);
+  }, 2000);
+  document.getElementById("input-field").value = "";
 };

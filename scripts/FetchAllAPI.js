@@ -1,7 +1,10 @@
-const loadAllPosts = async() => {
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+const loadAllPosts = async(cat="") => {
+    handleSpinner(true)
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts${cat}`);
     const data = await res.json();
-    showAllLoadPosts(data.posts);
+    setTimeout(() => {
+        showAllLoadPosts(data.posts)
+    }, 1000)
 }
 
 loadAllPosts()
