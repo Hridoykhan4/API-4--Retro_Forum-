@@ -14,7 +14,8 @@ const showAllLoadPosts = (posts) => {
       posted_time,
     } = post;
     const div = document.createElement("div");
-    div.className = "bg-[#797DFC1A] p-4 rounded-lg flex gap-6";
+    div.className =
+      "bg-[#797DFC1A] p-4 rounded-lg flex flex-col lg:flex-row gap-6";
     div.innerHTML = `
         <div class="w-20 h-20">
         <img src="${image}" class="w-full h-full object-cover rounded-full"/>
@@ -62,7 +63,7 @@ const showAllLoadPosts = (posts) => {
         </div>
 
         <div>
-                <img class="w-12 cursor-pointer" src="../images/read.svg" />
+                <img onclick="envelopeClicked('${title}', '${view_count}', '${id}', this)" class="w-12 cursor-pointer  hover:scale-110 overflow-hidden transition-all duration-150" src="../images/read.svg" />
         </div>
 
         `;
@@ -70,19 +71,26 @@ const showAllLoadPosts = (posts) => {
   });
 };
 
-/* 
-{
-    "id": 101,
-    "category": "Comedy",
-    "image": "https://i.ibb.co/0QRxkd5/pexels-jan-kop-iva-3525908.jpg",
-    "isActive": true,
-    "title": "10 Kids Unaware of Their Costume",
-    "author": {
-        "name": "John Doe"
-    },
-    "description": "It is one thing to subject yourself to a costume mishap",
-    "comment_count": 560,
-    "view_count": 1568,
-    "posted_time": 5
-}
-*/
+let count = 1;
+let unique = [];
+const envelopeClicked = (title, view_count, id, event) => {
+  const parseId = parseInt(id);
+  if (!unique.includes(parseId)) {
+    unique.push(parseId);
+    const readCount = document.getElementById("readCounterIncrease");
+    readCount.innerText = count;
+    const readContainer = document.getElementById("read-status-container");
+    const div = document.createElement("div");
+    div.className = `flex justify-between  gap-4 flex-col md:flex-row items-center bg-white p-3 rounded-xl`;
+    div.innerHTML = `
+        <p class="font-semibold text-lg">${title}</p>    
+        <p class="text-gray-500 text-xl flex items-center"><img src="../images/views.svg"> ${view_count}</p>    
+        `;
+    readContainer.appendChild(div);
+    count++;
+    document.getElementById("alreadyRead").classList.add("hidden");
+    event.src = "../images/readme2.png";
+  } else {
+    document.getElementById("alreadyRead").classList.remove("hidden");
+  }
+};

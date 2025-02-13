@@ -69,7 +69,7 @@
           </p>
           <div class="join w-full">
             <input
-              class="input max-w-[200px] md:max-w-full input-bordered join-item text-black tracking-wider"
+              class="input max-w-[230px] md:max-w-full input-bordered join-item text-black tracking-wider"
               placeholder="Search Here Anything"
             />
             <button
@@ -105,36 +105,50 @@
       <!-- Banner section end -->
     </header>
 
-
     <main class="max-w-[1440px] w-11/12 mx-auto">
-        <section class="text-center my-8 space-y-2" >
-            <h3 class="text-3xl font-bold">Let's Discuss</h3>
-            <p class="text-gray-600">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
-        </section>
-        <section class="my-8 flex flex-col-reverse justify-between lg:flex-row gap-4">
-            <div class="lg:w-3/5">
-                <div id="loadSpinner" class="hidden">
-                  <span class="loading loading-spinner loading-lg"></span>
-                </div>
-                <div id="content-container" class="space-y-3">
-                 
-                </div>
+      <section class="text-center my-8 space-y-2">
+        <h3 class="text-3xl font-bold">Let's Discuss</h3>
+        <p class="text-gray-600">
+          Yes, you can run unit tests and view the results directly within the
+          app. The <br />
+          integrated testing features allow for a streamlined .
+        </p>
+      </section>
+      <section
+        class="my-8 flex flex-col-reverse justify-between lg:flex-row gap-4"
+      >
+        <div class="lg:w-3/5">
+          <div id="loadSpinner" class="hidden">
+            <span class="loading loading-spinner loading-lg"></span>
+          </div>
+          <div id="content-container" class="space-y-3"></div>
+        </div>
+
+        <div class="bg-gray-200 lg:w-4/12 p-5 rounded-lg h-full">
+          <div class="flex justify-between items-center mb-5">
+            <h3 class="font-semibold text-xl">Title</h3>
+            <div>
+              <p class="flex gap-2 text-gray-600 font-semibold">
+                <img src="./images/tik.svg" alt="" />Mark As Read
+                <span
+                  class="after:content-[')'] before:content-['(']"
+                  id="readCounterIncrease"
+                  >0</span
+                >
+              </p>
             </div>
+          </div>
 
-            <div class="bg-gray-200 lg:w-4/12 p-5 rounded-lg h-full">
-                <div class="flex justify-between items-center">
-                  <h3 class="font-semibold text-xl">Title</h3>
-                  <div>
-                  <p class="flex gap-2 text-gray-600 font-semibold"><img src="./images/tik.svg" alt="">Mark As Read (4)</p>
-                  </div>
-                </div>
+          <p
+            id="alreadyRead"
+            class="text-center hidden mb-5 text-red-600 font-medium"
+          >
+            ❌ Already Read This Post
+          </p>
 
-                <div id="read-status-container">
-
-                </div>
-
-            </div>
-        </section>
+          <div id="read-status-container" class="space-y-3"></div>
+        </div>
+      </section>
     </main>
 
     <script src="./scripts/FetchAllAPI.js"></script>
