@@ -1,11 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="max-w-[1440px] w-11/12 mx-auto">
+      <nav class="flex justify-between py-4 items-center">
+        <div class="flex-1">
+          <img src="./images/logo.png" alt="" />
+          <!-- <h3 class="text-xl text-[#12132D] lg:text-3xl font-bold">ReTro</h3> -->
+        </div>
+        <div class="flex gap-5">
+          <div class="hidden lg:flex">
+            <div class="flex items-center gap-4">
+              <img
+                class="bg-gray-200 border border-black/20 p-2 rounded-full"
+                src="./images/home.svg"
+                alt=""
+              />
+              <img
+                class="bg-gray-200 border border-black/20 p-2 rounded-full"
+                src="./images/edit.svg"
+                alt=""
+              />
+              <img
+                class="bg-gray-200 border border-black/20 p-2 rounded-full"
+                src="./images/user.svg"
+                alt=""
+              />
+              <img
+                class="bg-gray-200 border border-black/20 p-2 rounded-full"
+                src="./images/flag.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          <button
+            class="py-3 px-9 btn min-h-0 h-auto flex justify-center items-center font-bold text-xl bg-[#797DFC] text-white rounded-s-full rounded-e-full"
+          >
+            Sign In
+          </button>
+        </div>
+      </nav>
+
+      <!-- Banner section start -->
+
+      <div class="lg:py-36 py-10 flex flex-col justify-around gap-4 text-white md:flex-row bg-[url(./images/bgbanner.png)] bg-cover bg-bottom rounded-lg bg-[#12132D]">
+        <div class="space-y-4 px-4">
+            <h3 class="text-3xl lg:text-5xl tracking-wide ">Welcome to the <br><span class="bg-gradient-to-r from-violet-800 to-violet-500 bg-clip-text text-transparent text-4xl font-bold">ReTro</span> Forum</h3>
+            <p class="font-medium text-gray-300 ">Share your favorite opinion and win and wp forum coffee mug!</p>
+            <div class="join w-full">
+              <input class="input max-w-[200px] md:max-w-full input-bordered join-item text-black tracking-wider" placeholder="Search Here Anything" />
+              <button class="btn join-item rounded-r-full rounded-l-full bg-[#797DFC] hover:bg-violet-600 text-white">Search</button>
+            </div>
+        </div>
+
+        <div class="bg-white p-10 space-y-3 rounded-lg text-gray-600 font-semibold mx-4">
+            <div class="flex gap-8 items-center justify-between">
+              <h3>Registered Users</h3>
+              <p>01</p>
+            </div>
+            <div class="flex gap-8 items-center justify-between">
+              <h3>Forum</h3>
+              <p>05</p>
+            </div>
+            <div class="flex gap-8 items-center justify-between">
+              <h3>Topics</h3>
+              <p>01</p>
+            </div>
+            <div class="flex gap-8 items-center justify-between">
+              <h3>Replies</h3>
+              <p>05</p>
+            </div>
+        </div>
+      </div>
+
+
+      <!-- Banner section end -->
+
+    </header>
+
+    <script src="./scripts/app.js"></script>
+  </body>
 </html>
