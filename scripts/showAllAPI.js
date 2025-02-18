@@ -1,9 +1,9 @@
 const showAllLoadPosts = (posts) => {
-  console.log(posts.length);
+  console.log(posts);
   const contentContainer = document.getElementById("content-container");
   if (posts.length === 0) {
     contentContainer.innerHTML = `
-    <img src="../images/searchNotFound.gif"/>
+    <img src="./images/searchNotFound.gif"/>
     `;
     handleSpinner(false);
     return;
@@ -27,8 +27,16 @@ const showAllLoadPosts = (posts) => {
     div.className =
       "bg-[#797DFC1A] p-4 rounded-lg flex flex-col lg:flex-row gap-6 hover:bg-sky-100 transition-all duration-400";
     div.innerHTML = `
-        <div class="w-20 h-20 overflow-hidden">
-        <img src="${image}" class="w-full h-full hover:scale-105 duration-300 ease-in-out transition-all cursor-pointer object-cover rounded-full"/>
+        <div class=" relative">
+        <img src="${image}" class="w-20 h-20 hover:scale-105 duration-300 ease-in-out transition-all cursor-pointer object-cover rounded-full"/>
+   
+
+        ${
+          isActive
+            ? `<p class="w-5 h-5  absolute -right-1 top-1 rounded-full  bg-green-700"></p>`
+            : `<p class="w-5 h-5  absolute -right-1 top-1 rounded-full  bg-red-700"></p>`
+        }
+
         </div>
 
        <div class="space-y-2 md:space-y-4 flex-1">
@@ -45,7 +53,7 @@ const showAllLoadPosts = (posts) => {
         <div class="flex gap-5 items-center">
             <div class="flex items-center gap-1">   
                 <div>
-                    <img src="../images/mgs.svg"/>
+                    <img src="./images/mgs.svg"/>
                 </div>
                 <div>
                     <p>${comment_count}</p>
@@ -54,7 +62,7 @@ const showAllLoadPosts = (posts) => {
             </div>
             <div class="flex items-center gap-1">   
                 <div>
-                    <img src="../images/views.svg"/>
+                    <img src="./images/views.svg"/>
                 </div>
                 <div>
                     <p>${view_count}</p>
@@ -63,7 +71,7 @@ const showAllLoadPosts = (posts) => {
             </div>
             <div class="flex items-center gap-1">   
                 <div>
-                    <img src="../images/time.svg"/>
+                    <img src="./images/time.svg"/>
                 </div>
                 <div>
                     <p>${posted_time}</p>
@@ -73,7 +81,7 @@ const showAllLoadPosts = (posts) => {
         </div>
 
         <div>
-                <img onclick='envelopeClicked("${title}", "${view_count}", "${id}", this)' class="w-12 cursor-pointer  hover:scale-110 overflow-hidden transition-all duration-150" src="../images/read.svg" />
+                <img onclick='envelopeClicked("${title}", "${view_count}", "${id}", this)' class="w-12 cursor-pointer  hover:scale-110 overflow-hidden transition-all duration-150" src="./images/read.svg" />
         </div>
 
         `;
@@ -96,12 +104,12 @@ const envelopeClicked = (title, view_count, id, event) => {
     div.className = `flex justify-between  gap-4 flex-col md:flex-row items-center bg-white p-3 rounded-xl`;
     div.innerHTML = `
         <p class="font-semibold text-lg">${title}</p>    
-        <p class="text-gray-500 text-xl flex items-center"><img src="../images/views.svg"> ${view_count}</p>    
+        <p class="text-gray-500 text-xl flex items-center"><img src="./images/views.svg"> ${view_count}</p>    
         `;
     readContainer.appendChild(div);
     count++;
     document.getElementById("alreadyRead").classList.add("hidden");
-    event.src = "../images/readme2.png";
+    event.src = "./images/readme2.png";
   } else {
     document.getElementById("alreadyRead").classList.remove("hidden");
   }
@@ -145,7 +153,7 @@ const showLatestPosts = (posts) => {
       class="rounded-xl" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title"><img src="../images/calander.svg" /> ${
+    <h2 class="card-title"><img src="./images/calander.svg" /> ${
       posted_date ? posted_date : "No Publish Date"
     }</h2>
     <h2 class="font-semibold text-lg">${title}</h2>
