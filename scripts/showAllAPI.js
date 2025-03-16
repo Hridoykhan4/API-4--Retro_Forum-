@@ -1,5 +1,4 @@
 const showAllLoadPosts = (posts) => {
-  console.log(posts);
   const contentContainer = document.getElementById("content-container");
   if (posts.length === 0) {
     contentContainer.innerHTML = `
@@ -8,7 +7,7 @@ const showAllLoadPosts = (posts) => {
     handleSpinner(false);
     return;
   }
-  contentContainer.innerHTML = "";
+
   posts.forEach((post) => {
     let {
       id,
